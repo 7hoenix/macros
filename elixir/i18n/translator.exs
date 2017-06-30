@@ -10,8 +10,7 @@ defmodule Translator do
   end
 
   defmacro __before_compile__(env) do
-    Macro.to_string(env)
-    IO.inspect env
+    IO.inspect env.module
     compile(Module.get_attribute(env.module, :locales))
   end
 
